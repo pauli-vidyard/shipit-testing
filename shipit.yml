@@ -1,0 +1,41 @@
+review:
+#  checklist:
+#  - Have you tested on staging?
+#  monitoring:
+#  - iframe: https://p.datadoghq.com/sb/ujxee2-f12cf96356fbe4033d9fdd7dc99b6cf0
+#    width: 400
+#    height: 300
+
+dependencies:
+  override:
+
+account: staging
+deploy:
+  targets:
+    - terraform
+    - ecs
+    - e2e
+  ecs:
+    cluster: staging
+    service: staging-dev-testing
+    before:
+    - name: I'm special
+      command: [echo,"I'm special"]
+    - name: So special
+      command: [echo,"So special"]
+    after:
+    - name: Very 'special'
+      command: [echo,"Very 'special'"]
+  terraform:
+    cluster: staging
+    image: docker.vidyard.com/dev-testing
+    hash_file: .terraform.plan.hash
+  e2e:
+    service: staging-dev-testing
+
+tasks:
+  hello_world:
+    action: "Say 'hello world'"
+    description: "Says 'hello world' so we can try to ensure it runs inside a task"
+    steps:
+    - echo "Hello World!"

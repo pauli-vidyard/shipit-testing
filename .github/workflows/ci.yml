@@ -1,0 +1,11 @@
+name: CI
+on: push
+jobs:
+  build:
+    runs-on: [self-hosted, linux]
+    steps:
+    - uses: actions/checkout@v2
+    - name: docker image
+      run: |
+        docker build -t docker.vidyard.com/dev-testing:${GITHUB_SHA} .
+        docker push docker.vidyard.com/dev-testing:${GITHUB_SHA}
