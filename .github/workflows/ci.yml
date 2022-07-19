@@ -7,5 +7,5 @@ jobs:
     - uses: actions/checkout@v2
     - name: docker image
       run: |
-        docker build -t docker.vidyard.com/dev-testing:${GITHUB_SHA} .
-        docker push docker.vidyard.com/dev-testing:${GITHUB_SHA}
+        docker build -t docker.vidyard.com/staging-shipit-paulli:${GITHUB_SHA} .
+        docker push docker.vidyard.com/staging-shipit-paulli:${GITHUB_SHA}

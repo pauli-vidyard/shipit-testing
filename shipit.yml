@@ -17,7 +17,7 @@ deploy:
     - e2e
   ecs:
     cluster: staging-infra
-    service: staging-paulli-testing
+    service: staging-shipit-paulli
     before:
     - name: I'm special
       command: [echo,"I'm special"]
@@ -28,10 +28,10 @@ deploy:
       command: [echo,"Very 'special'"]
   terraform:
     cluster: staging-infra
-    image: docker.vidyard.com/dev-paulli-testing
+    image: docker.vidyard.com/staging-shipit-paulli
     hash_file: .terraform.plan.hash
   e2e:
-    service: staging-paulli-testing
+    service: staging-shipit-paulli
 
 tasks:
   hello_world:
