@@ -21,8 +21,10 @@ deploy:
     before:
     - name: I'm special
       command: [echo,"I'm special"]
+      optional: true
     - name: So special
       command: [echo,"So special"]
+      optional: true
     after:
     - name: Very 'special'
       command: [echo,"Very 'special'"]
