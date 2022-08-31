@@ -2,7 +2,7 @@ name: CI
 on: push
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: [self-hosted, linux]
     steps:
     - uses: actions/checkout@v2
     - name: docker image
