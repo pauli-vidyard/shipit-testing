@@ -1,2 +1,2 @@
 # shipit-testing
-Testing the ShipIt workflows CIAO CIAO
+Testing the ShipIt workflows Ciao 2
